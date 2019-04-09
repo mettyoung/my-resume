@@ -1,1 +1,3 @@
-# my-resume
+# My Resume
+
+Software Engineer
