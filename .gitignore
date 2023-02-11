@@ -1,2 +1,4 @@
 .DS_Store
-~$Resume.docx
+.idea
+_site/
+.sass-cache/
