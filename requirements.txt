@@ -1,0 +1,9 @@
+# Dependencies for render.py (resume.md -> resume.pdf)
+# Install with:  pip install -r requirements.txt
+#
+# Note: weasyprint needs a few system libraries (pango, cairo, gdk-pixbuf).
+# On Debian/Ubuntu:  apt-get install libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 libffi-dev
+# On macOS (Homebrew): brew install pango gdk-pixbuf libffi
+
+markdown>=3.5
+weasyprint>=63

@@ -1,0 +1,104 @@
+/* ===== Page ===== */
+@page {
+  size: 8.5in 13in;          /* matches the original .docx page (Letter-width, extended height) */
+  margin: 0.85in 1in;        /* trimmed top/bottom to keep everything on one page */
+}
+
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+html { orphans: 1; widows: 1; }
+
+body {
+  /* Hack Nerd Font Mono: wide glyphs, so the point size runs smaller than the
+     serif version to keep the same characters-per-line. */
+  font-family: "Hack Nerd Font Mono", "Hack", monospace;
+  font-size: 8.5pt;
+  line-height: 1.2;
+  color: #000;
+  margin: 0;
+  text-align: left;          /* mono + justify stretches short lines badly */
+  hyphens: none;
+}
+
+a { color: #1155cc; text-decoration: underline; }
+
+/* ===== Header (name + contact) ===== */
+.contact-label {
+  float: right; clear: right; margin: 0;
+  font-size: 11.5pt; color: #7f7f7f; text-align: right; font-weight: 400;
+}
+.contact {
+  float: right; clear: right; margin: 1pt 0 0 0;
+  text-align: right; font-size: 8.5pt; color: #262626; line-height: 1.35;
+}
+
+/* Mono glyphs are wide: 24pt here occupies roughly the same width the serif
+   version did at 34pt, so the name still clears the floated contact block. */
+h1 {
+  font-size: 24pt; font-weight: 400; letter-spacing: -0.5pt;
+  margin: 0; line-height: 1.1; text-align: left;
+}
+.role {
+  margin: 1pt 0 3pt 0; font-size: 10.5pt; color: #7f7f7f; font-weight: 400;
+  text-align: left;
+}
+
+/* ===== Section headings ===== */
+h2 {
+  clear: both; font-size: 11.5pt; font-weight: 700;
+  margin: 8pt 0 1pt 0; padding-bottom: 1pt; border-bottom: 1.25pt solid #000;
+  break-after: avoid; text-align: left;
+}
+.role + h2 { margin-top: 4pt; }
+#previous-employment { break-before: page; }
+
+/* ===== Paragraphs ===== */
+p { margin: 1pt 0; }
+
+/* ===== Technical Summary table ===== */
+table.tech {
+  width: 100%; border-collapse: collapse; margin: 2pt 0 0 0; font-size: 8pt;
+}
+table.tech thead { display: none; }
+table.tech td {
+  border-top: 0.75pt solid #7f7f7f; border-bottom: 0.75pt solid #7f7f7f;
+  padding: 1pt 6pt; vertical-align: top;
+}
+table.tech td:first-child {
+  width: 1.35in; font-weight: 700; white-space: nowrap;
+  border-right: 0.75pt solid #7f7f7f; text-align: left;
+}
+
+/* ===== Employment / Education entry header ===== */
+.entry {
+  display: flex; align-items: baseline;
+  margin: 6pt 0 1pt 0; font-weight: 700;
+  break-inside: avoid;
+  padding-left: 6pt;         /* Word indents the entry rows slightly */
+}
+.entry .e-title { width: 40%; }
+.entry .e-org   { width: 33%; }
+.entry .e-dates { width: 27%; text-align: right; white-space: nowrap; }
+.entry + .entry { margin-top: 1pt; }
+
+/* ===== Bullet lists (Word-style: level 1 "•", level 2 "o") ===== */
+ul {
+  margin: 0; padding: 0; list-style: none;
+}
+li {
+  position: relative;
+  margin: 0.5pt 0;
+  padding-left: 20pt;        /* hanging indent: text block clears the marker */
+  break-inside: avoid;
+}
+li::before {
+  content: "\2022";          /* • */
+  position: absolute; left: 8pt; top: 0;
+}
+/* level 2 */
+li ul { margin: 0.5pt 0; }
+li ul > li { padding-left: 22pt; }
+li ul > li::before {
+  content: "o";
+  left: 6pt; font-size: 0.85em;
+}
