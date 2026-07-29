@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Repo convention: all work happens directly on master (this repo's default
+# branch). Auto-push every commit made on master so origin/master never
+# drifts behind the local branch.
+set -euo pipefail
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$branch" = "master" ]; then
+    git push origin master
+fi

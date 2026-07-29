@@ -20,3 +20,16 @@ python render.py
 Output: `dist/Young_CV.pdf`.
 
 Custom paths: `python render.py [resume.md] [dist/Young_CV.pdf] [render.css]`
+
+## Hooks
+
+Git hooks live in `.githooks/` and are versioned. Enable them once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+- `pre-commit` re-renders `dist/Young_CV.pdf` and stages it whenever
+  `resume.md` or `render.css` changes, so the PDF never drifts out of sync.
+- `post-commit` pushes `master` (this repo's default branch) to `origin`
+  after every commit made on `master`.

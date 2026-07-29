@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Regenerates dist/Young_CV.pdf whenever resume.md or render.css is staged,
+# and stages the rendered PDF into the same commit.
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+if git diff --cached --name-only | grep -qE '^(resume\.md|render\.css)$'; then
+    python_bin="python3"
+    if [ -x "$repo_root/.venv/bin/python" ]; then
+        python_bin="$repo_root/.venv/bin/python"
+    fi
+
+    echo "pre-commit: resume.md/render.css changed, running render.py..."
+    if ! "$python_bin" render.py; then
+        echo "pre-commit: render.py failed, aborting commit." >&2
+        exit 1
+    fi
+
+    git add dist/Young_CV.pdf
+fi
