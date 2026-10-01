@@ -1,0 +1,75 @@
+# Renders resume.md -> Young_CV.pdf, attaches it to a GitHub Release, and
+# deploys the Pages site so https://mettyoung.com/my-resume/dist/Young_CV.pdf
+# keeps serving the latest build. The PDF is never committed.
+#
+# One-time setup: Settings -> Pages -> Source = "GitHub Actions".
+name: Release resume
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # create releases
+  pages: write
+  id-token: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install native deps and Hack Nerd Font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf-2.0-0 fontconfig unzip
+          mkdir -p ~/.local/share/fonts
+          curl -fsSL -o /tmp/Hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip
+          unzip -o /tmp/Hack.zip 'HackNerdFontMono-*.ttf' -d ~/.local/share/fonts
+          fc-cache -f
+          fc-list | grep -q "Hack Nerd Font Mono" || { echo "Hack Nerd Font Mono not installed" >&2; exit 1; }
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - run: python render.py
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="cv-$(date -u +%Y%m%d)-${GITHUB_SHA::7}"
+          gh release create "$tag" dist/Young_CV.pdf \
+            --target "$GITHUB_SHA" \
+            --title "Resume $(date -u +%Y-%m-%d)" \
+            --notes "$(git log -1 --format=%s)" \
+            --latest
+
+      # dist/Young_CV.pdf exists in the workspace now, so Jekyll copies it
+      # into the site alongside the README-rendered index.
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
