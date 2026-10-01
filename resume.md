@@ -23,6 +23,7 @@ The applicant drafts an application and uploads KYC documents; submitting starts
 | **Back-end** | Spring Boot, REST, Thrift, MySQL, Postgres, MongoDB, Redis, Elasticsearch, Clickhouse, Kafka, RocketMQ, JUnit, Spock, Cucumber, Kotest, Testcontainers, JMeter, Taurus |
 | **Front-end** | ReactJS, Ant Design, Redux |
 | **DevOps** | Liquibase, Flyway, Maven, Gradle, Docker, Nexus Artifactory, Kubernetes, Ansible, TeamCity, Jenkins, ELK, Prometheus, Open Tracing, Grafana |
+| **AI Tooling** | Claude Code |
 
 ## Employment
 
