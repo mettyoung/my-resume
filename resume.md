@@ -11,18 +11,18 @@ Staff Software Engineer
 
 ## Featured Portfolio
 
-[https://mettyoung.com/railway-routing-service/](https://mettyoung.com/railway-routing-service/)
+**Credit Card Application Modulith System** [\[https://github.com/mettyoung/credit-card-system\]](https://github.com/mettyoung/credit-card-system) 
 
-Created a containerized web app for suggesting railway routes to travelers in Singapore.
+The applicant drafts an application and uploads KYC documents; submitting starts a durable async workflow that gathers evidence from sync and async vendors, respecting idempotency, resumable retry and an append-only audit log. 
 
 ## Technical Summary
 
 |  |  |
 | :-- | :-- |
-| **Architecture** | DDD, CQRS, Outbox, Hexagonal Architecture, Microservice |
-| **Back-end** | Spring Boot, REST, Thrift, MySQL, Postgres, MongoDB, Redis, Elasticsearch, Clickhouse, Kafka, RocketMQ, JUnit, Spock, Cucumber, JMeter, Taurus |
+| **Architecture** | DDD, CQRS, Outbox, Hexagonal Architecture, Microservice, Modular Monolith |
+| **Back-end** | Spring Boot, REST, Thrift, MySQL, Postgres, MongoDB, Redis, Elasticsearch, Clickhouse, Kafka, RocketMQ, JUnit, Spock, Cucumber, Kotest, Testcontainers, JMeter, Taurus |
 | **Front-end** | ReactJS, Ant Design, Redux |
-| **DevOps** | Liquibase, Maven, Gradle, Docker, Nexus Artifactory, Kubernetes, Ansible, TeamCity, Jenkins, ELK, Prometheus, Open Tracing, Grafana |
+| **DevOps** | Liquibase, Flyway, Maven, Gradle, Docker, Nexus Artifactory, Kubernetes, Ansible, TeamCity, Jenkins, ELK, Prometheus, Open Tracing, Grafana |
 
 ## Employment
 
