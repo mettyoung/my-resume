@@ -11,7 +11,7 @@ Staff Software Engineer
 
 ## Featured Portfolio
 
-**Credit Card Application Modulith System** [\[https://github.com/mettyoung/credit-card-system\]](https://github.com/mettyoung/credit-card-system) [\[Live demo\]](https://creditcardapplication.mettyoung.com/) 
+**Credit Card Application Modulith System** [\[https://github.com/mettyoung/credit-card-system\]](https://github.com/mettyoung/credit-card-system) 
 
 An applicant creates a draft, uploads an identification document and submits; a durable workflow then runs checks with external vendors reliably and asynchronously via webhooks, auto-approving clean results and routing anything flagged to a reviewer to approve or decline. 
 
