@@ -11,9 +11,9 @@ Staff Software Engineer
 
 ## Featured Portfolio
 
-**Credit Card Application Modulith System** [\[https://github.com/mettyoung/credit-card-system\]](https://github.com/mettyoung/credit-card-system) 
+**Credit Card Application Modulith System** [\[https://github.com/mettyoung/credit-card-system\]](https://github.com/mettyoung/credit-card-system) [\[Live demo\]](https://creditcardapplication.mettyoung.com/) 
 
-The applicant drafts an application and uploads KYC documents; submitting starts a durable async workflow that gathers evidence from sync and async vendors, respecting idempotency, resumable retry and an append-only audit log. 
+An applicant creates a draft, uploads an identification document and submits; a durable workflow then runs checks with external vendors reliably and asynchronously via webhooks, auto-approving clean results and routing anything flagged to a reviewer to approve or decline. 
 
 ## Technical Summary
 
