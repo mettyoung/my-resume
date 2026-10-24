@@ -20,10 +20,10 @@ An applicant creates a draft, uploads an identification document and submits; a 
 |  |  |
 | :-- | :-- |
 | **Architecture** | DDD, CQRS, Outbox, Hexagonal Architecture, Microservice, Modular Monolith |
-| **Back-end** | Spring Boot, REST, Thrift, MySQL, Postgres, MongoDB, Redis, Elasticsearch, Clickhouse, Kafka, RocketMQ, JUnit, Spock, Cucumber, Kotest, Testcontainers, JMeter, Taurus |
-| **Front-end** | ReactJS, Ant Design, Redux |
-| **DevOps** | Liquibase, Flyway, Maven, Gradle, Docker, Nexus Artifactory, Kubernetes, Ansible, TeamCity, Jenkins, ELK, Prometheus, Open Tracing, Grafana |
-| **AI Tooling** | Claude Code |
+| **Back-end** | **App servers:** Java, Spring Boot, REST, Thrift · **Databases:** MySQL, Postgres, MongoDB, Clickhouse · **Caches:** Redis · **Queues/Streaming:** RocketMQ, Kafka · **Search:** Elasticsearch · **Observability:** ELK, Prometheus, Open Tracing, Grafana |
+| **Testing** | JUnit, Spock, Cucumber, Kotest, Testcontainers, JMeter, Taurus |
+| **DevOps** | Liquibase, Flyway, Maven, Gradle, Docker, Nexus Artifactory, Kubernetes, Ansible, TeamCity, Jenkins |
+| **Front-end / AI** | ReactJS, Ant Design, Redux · Claude Code |
 
 ## Employment
 
